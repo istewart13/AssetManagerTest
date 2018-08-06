@@ -9,13 +9,8 @@ namespace AssetManagerTest.Models
         public virtual DbSet<Asset> Asset { get; set; }
         public virtual DbSet<Customer> Customer { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public AssetManagerContext(DbContextOptions<AssetManagerContext> options) : base(options)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer(@"Server=DESKTOP-GO0KTGU;Database=AssetManager;Trusted_Connection=True;");
-            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
