@@ -29,6 +29,9 @@ namespace AssetManagerTest
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddDbContext<AssetManagerContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("AssetManagerTestDatabase")));
+
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
